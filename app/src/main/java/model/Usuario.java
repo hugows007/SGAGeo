@@ -5,11 +5,17 @@ package model;
  */
 
 public class Usuario {
+    private  int idUsuario;
     private String Usuario, Senha;
 
-    public Usuario(String usuario, String senha) {
+    public Usuario(int id, String usuario, String senha) {
+        idUsuario = id;
         Usuario = usuario;
         Senha = senha;
+    }
+
+    public int getId() {
+        return idUsuario;
     }
 
     public String getUsuario() {

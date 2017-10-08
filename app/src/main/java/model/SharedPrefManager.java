@@ -13,6 +13,7 @@ import projeto.android.sga.sgageo.LoginActivity;
 public class SharedPrefManager {
     //the constants
     private static final String SHARED_PREF_NAME = "simplifiedcodingsharedpref";
+    private static final String KEY_IDUSR = "id";
     private static final String KEY_USERNAME = "keyusername";
     private static final String KEY_PASS = "keyemail";
     private static final String KEY_GENDER = "keygender";
@@ -37,6 +38,7 @@ public class SharedPrefManager {
     public void userLogin(Usuario user) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(KEY_IDUSR, user.getId());
         editor.putString(KEY_USERNAME, user.getUsuario());
         editor.putString(KEY_PASS, user.getSenha());
         editor.apply();
@@ -52,6 +54,7 @@ public class SharedPrefManager {
     public Usuario getUser() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new Usuario(
+                sharedPreferences.getInt(KEY_IDUSR, 0),
                 sharedPreferences.getString(KEY_USERNAME, null),
                 sharedPreferences.getString(KEY_PASS, null)
         );

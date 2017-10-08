@@ -104,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 //creating a new user object
                                 Usuario user = new Usuario(
+                                        userJson.getInt("Id"),
                                         userJson.getString("Login"),
                                         userJson.getString("Senha")
                                 );
