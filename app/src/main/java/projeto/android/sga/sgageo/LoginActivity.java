@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "Erro no servidor. Tente novamente.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Erro no servidor. Verifique sua conexão e tente novamente.", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override

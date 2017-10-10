@@ -84,17 +84,17 @@ public class InicioActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            if (response.contains("erro")) {
-                                Toast.makeText(getApplicationContext(), "Algo deu errado. Tente novamente.", Toast.LENGTH_LONG).show();
-
-                            }else if(response.contains("ok")){
+                            if(response.contains("ok")) {
                                 Toast.makeText(getApplicationContext(), "Atualizado.", Toast.LENGTH_LONG).show();
+                            }else if(response.contains("errogravacao")) {
+                                Toast.makeText(getApplicationContext(), "Ocorreu um erro ao gravar os dados no servidor. Informe ao suporte.", Toast.LENGTH_LONG).show();
+                            }else if(response.contains("dadosinvalidos")) {
+                                Toast.makeText(getApplicationContext(), "Dados inválidos.", Toast.LENGTH_LONG).show();
                             }else{
-                                Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Algo deu errado. Informe ao suporte.", Toast.LENGTH_LONG).show();
                             }
-
                         } catch (Exception e) {
-                            Toast.makeText(getApplicationContext(), "Algo deu errado. Tente novamente.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Algo deu errado. Informe ao suporte.", Toast.LENGTH_LONG).show();
                             e.printStackTrace();
                         }
                     }
@@ -102,7 +102,7 @@ public class InicioActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "Erro no servidor. Tente novamente.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Erro no servidor. Verifique sua conexão e tente novamente.", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
