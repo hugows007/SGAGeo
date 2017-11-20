@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">SGAGeo</string>
+    <string name="app_name">SGA TI - Técnico</string>
+    <string name="bem_vindo">Olá Técnico(a), bem vindo(a)!</string>
+    <string name="hint_usuario">Digite seu login...</string>
+    <string name="hint_senha">Digite sua senha...</string>
+    <string name="aviso_logado">Mantenha-se sempre logado quando estiver em jornada de trabalho.</string>
+    <string name="bot_login">Logar</string>
+    <string name="bot_deslog">Sair</string>
 </resources>

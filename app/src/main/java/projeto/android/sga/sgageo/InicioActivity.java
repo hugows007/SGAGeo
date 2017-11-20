@@ -29,7 +29,6 @@ public class InicioActivity extends AppCompatActivity {
 
     final Handler handler = new Handler();
     private TextView bemVindo;
-    Button btnShowLocation;
     GPSTracker gps;
     GPS geo = new GPS();
     Usuario user;
@@ -51,8 +50,14 @@ public class InicioActivity extends AppCompatActivity {
 
         bemVindo = (TextView) findViewById(R.id.textViewBemVindo);
         bemVindo.setText("Bem vindo " + user.getUsuario());
-        btnShowLocation = (Button) findViewById(R.id.btnShowLocation);
-        geoPost();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                geoPost();
+                handler.postDelayed(this, 60000); //60000 = 1m
+            }
+        }, 60000);
 
         findViewById(R.id.buttonLogout).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,20 +66,6 @@ public class InicioActivity extends AppCompatActivity {
                 SharedPrefManager.getInstance(getApplicationContext()).logout();
             }
         });
-
-        btnShowLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                geoPost();
-            }
-        });
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                geoPost();
-                handler.postDelayed(this, 300000); //60000 = 1m
-            }
-        }, 300000);
     }
 
     private void geoPost() {
