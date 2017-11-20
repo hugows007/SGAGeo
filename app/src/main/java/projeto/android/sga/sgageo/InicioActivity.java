@@ -55,9 +55,9 @@ public class InicioActivity extends AppCompatActivity {
             @Override
             public void run() {
                 geoPost();
-                handler.postDelayed(this, 60000); //60000 = 1m
+                handler.postDelayed(this, 10000); //60000 = 1m
             }
-        }, 60000);
+        }, 10000);
 
         findViewById(R.id.buttonLogout).setOnClickListener(new View.OnClickListener() {
             @Override
