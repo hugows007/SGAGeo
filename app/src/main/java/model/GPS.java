@@ -5,7 +5,7 @@ package model;
  */
 
 public class GPS {
-    private int idUsuario;
+    private int idUsuario, idEmpresa;
     private double latitude,longetude;
 
 
@@ -13,14 +13,19 @@ public class GPS {
 
     }
 
-    public GPS(int usr, double latitude, double longetude) {
+    public GPS(int usr, int empresa, double latitude, double longetude) {
         this.idUsuario = usr;
+        this.idEmpresa = empresa;
         this.latitude = latitude;
         this.longetude = longetude;
     }
 
     public int getUsr() {
         return idUsuario;
+    }
+
+    public int getEmpresa() {
+        return idEmpresa;
     }
 
     public double getLatitude() {
@@ -33,6 +38,10 @@ public class GPS {
 
     public void setUsr(int id) {
         idUsuario = id;
+    }
+
+    public void setEmpresa(int id) {
+        idEmpresa = id;
     }
 
     public void setLatitude(double lat) {

@@ -100,6 +100,7 @@ public class InicioActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("idusr", String.valueOf(user.getId()));
+                params.put("idempresa", String.valueOf(user.getIdEmpresa()));
                 params.put("latitude", String.valueOf(geo.getLatitude()));
                 params.put("longitude", String.valueOf(geo.getLongitude()));
                 return params;
